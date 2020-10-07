@@ -75,10 +75,10 @@ public class Scanner {
         if (ch == EOF) return new Token(Token.EOF, line, col);
         
         Token t = new Token(line, col);
-        //if ('A' <= ch && 'z' >= ch) System.Console.WriteLine(ch + " es letra ");
-        //if ('0' <= ch && '9' >= ch) System.Console.WriteLine(ch + " es nro ");
-        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) //es Letra
-         ReadName(t);
+            //if ('A' <= ch && 'z' >= ch) System.Console.WriteLine(ch + " es letra ");
+            //if ('0' <= ch && '9' >= ch) System.Console.WriteLine(ch + " es nro ");
+            if (ch == '_' || (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) //es Letra
+                ReadName(t);
         else 
          if ('0' <= ch && '9' >= ch)
            ReadNumber(t);
@@ -345,8 +345,8 @@ public class Scanner {
     }
     static void ReadName(Token t)
     {
-        while ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == '_')
-        {
+       while ((('0' <= ch && '9' >= ch || ch == '_') || (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch =='_'))
+            {
             t.str = t.str+ch;
             NextCh();
         }
