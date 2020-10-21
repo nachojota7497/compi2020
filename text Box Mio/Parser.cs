@@ -193,7 +193,8 @@ namespace at.jku.ssw.cc
         //static TextWriter output;
         public static Token token;    // last recognized token
         public static Token laToken;  // lookahead token (not yet recognized)
-        static int la;         // shortcut to kind attribute of lookahead token (laToken.kind)
+        static int la;
+        // shortcut to kind attribute of lookahead token (laToken.kind)
 
         /* Symbol table object of currently compiled method. */
         internal static Symbol curMethod;
@@ -206,6 +207,9 @@ namespace at.jku.ssw.cc
         {
             token = laToken;
             laToken = Scanner.Next();
+            System.Windows.Forms.TreeNode node = Program1.form1.arboltokens.Nodes.Insert(0, " TOKEN  " + token.str + "  |   TOKEN KIND= " + token.kind);
+            node.Expand();
+            node.Nodes.Insert(0, " laTOKEN  " + laToken.str + "  |   laTOKEN KIND= " + laToken.kind);
             //La 1° vez q se ejecuta, token queda con Token(1, 1), laToken con "class" (primer token del programa)
             la = laToken.kind;
         }

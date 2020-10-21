@@ -1427,6 +1427,27 @@ namespace at.jku.ssw.cc //Compilador //text_Box_Mio
             pr.Start();
         }
 
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void inspeccionarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tOKENSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedIndex = 3;
+            Parser.muestraProducciones = Parser.muestraCargaDeInstrs = false;
+            Tab.muestraTabSimb = true;
+            inicializa();
+
+            compilar();
+            // this.Close();
+        }
+
         private void acercaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             acerca_de f = new acerca_de();
